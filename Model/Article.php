@@ -81,7 +81,7 @@ class Article
    */
   public function setContent($content)
   {
-    if (is_string($content) && strlen($content) > 1 && strlen($content) < 80) {
+    if (is_string($content) && strlen($content) > 1) {
       $this->content = htmlspecialchars($content);
 
       return $this;

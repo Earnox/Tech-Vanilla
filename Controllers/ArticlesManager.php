@@ -1,33 +1,6 @@
-<?php class ArticlesManager
+<?php class ArticlesManager extends BaseManager
 {
-  private $pdo;
 
-  public function __construct()
-  {
-
-    $dbName = "tech_vannilla";
-    $this->setPdo(new PDO("mysql:host=localhost:3307;dbname=$dbName", 'root', ''));
-  }
-
-  /**
-   * Get the value of pdo
-   */
-  public function getPdo()
-  {
-    return $this->pdo;
-  }
-
-  /**
-   * Set the value of pdo
-   *
-   * @return  self
-   */
-  public function setPdo($pdo)
-  {
-    $this->pdo = $pdo;
-
-    return $this;
-  }
   public function create(Article $article)
   {
 
@@ -57,8 +30,10 @@
   }
   public function getById(int $id)
   {
-    $req = $this->pdo->query("SELECT * FROM `article` WHERE id = $id");
-    // $req->bindParam(":id", $id, PDO::PARAM_INT);
+    $sql = "SELECT * FROM `article` WHERE id = $id";
+    $req = $this->pdo->query($sql);
+
+    /*$req->bindValue(":id", $id, PDO::PARAM_INT);*/
     $data = $req->fetch();
 
     return new Article($data);

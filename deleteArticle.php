@@ -7,3 +7,4 @@ $manager->delete($_GET['id']);
 <script>
   window.location = "./index.php"
 </script>
+<?php require 'footer.php';

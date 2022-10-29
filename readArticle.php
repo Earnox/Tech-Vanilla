@@ -25,8 +25,11 @@ if ($_POST) {
   <div class="card" style="width: 18rem;">
     <!-- <img src="..." class="card-img-top" alt="..."> -->
     <div class="card-body">
-      <h5 class="card-title"><?= $article->getTitle() ?></h5>
-      <p class="card-text"><?= $article->getContent() ?> </p>
+      <label for="title">Lieu</label>
+      <p class="card-title" id="title"><?= $article->getTitle() ?></p>
+
+
+
 
       <a href="./uptateArticle.php?id=<?= $article->getId() ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
       <a href="./deleteArticle.php?id=<?= $article->getId() ?>" class=" btn btn-danger"><i class="fas fa-trash-alt"></i></a>
@@ -55,6 +58,4 @@ if ($_POST) {
   </div>
 </div>
 
-</body>
-
-</html>
+<?php require 'footer.php';

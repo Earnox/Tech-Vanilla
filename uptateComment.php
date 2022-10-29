@@ -1,7 +1,5 @@
 <?php require("./header.php");
 
-
-
 $commentManager = new CommentsManager();
 $comment = $commentManager->getById($_GET["id"]);
 $articleId = $comment->getArticle_id();
@@ -28,3 +26,4 @@ if ($_POST) {
     <input type="submit" value="Modifier" class="btn btn-warning mt-2">
   </form>
 </div>
+<?php require 'footer.php';

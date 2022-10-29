@@ -19,8 +19,9 @@ if ($_POST) {
     <input type="text" name="title" id="title" class="form-control" value="<?= $article->getTitle() ?>">
     <label for="form-label">contenu</label>
     <textarea type="text" name="content" id="content" class="form-control"> <?= $article->getContent() ?></textarea>
-    <textarea type="text" name="content" id="content" class="form-control"> <?= $article->getStatut() ?></textarea>
+    <input type="e" name="content" id="content" class="form-control"> <?= $article->getStatut() ?></textarea>
     <input type="submit" value="Modifier" class="btn btn-warning mt-2">
   </form>
 
 </div>
+<?php require 'footer.php';

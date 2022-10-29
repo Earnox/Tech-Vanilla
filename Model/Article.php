@@ -7,6 +7,11 @@ class Article extends EntityBase
   private $content;
   private $statut;
   private $startDate;
+  private $prioritaire;
+  private $post;
+  private $Animaux;
+  private $dateRealiser;
+  private $img;
   /**
    * Get the value of title
    */
@@ -89,6 +94,114 @@ class Article extends EntityBase
   public function setStatut($statut)
   {
     $this->statut = $statut;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of prioritaire
+   */
+  public function getPrioritaire()
+  {
+    return $this->prioritaire;
+  }
+
+  /**
+   * Set the value of prioritaire
+   *
+   * @return  self
+   */
+  public function setPrioritaire($prioritaire)
+  {
+    if (isset($prioritaire)) {
+      $prioritaire = true;
+    }
+    $this->prioritaire = $prioritaire;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of post
+   */
+  public function getPost()
+  {
+    return $this->post;
+  }
+
+  /**
+   * Set the value of post
+   *
+   * @return  self
+   */
+  public function setPost($post)
+  {
+    $this->post = $post;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of Animaux
+   */
+
+
+  /**
+   * Get the value of dateRealiser
+   */
+  public function getDateRealiser()
+  {
+    return $this->dateRealiser;
+  }
+
+  /**
+   * Set the value of dateRealiser
+   *
+   * @return  self
+   */
+  public function setDateRealiser($dateRealiser)
+  {
+    $this->dateRealiser = $dateRealiser;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of img
+   */
+  public function getImg()
+  {
+    return $this->img;
+  }
+
+  /**
+   * Set the value of img
+   *
+   * @return  self
+   */
+  public function setImg($img)
+  {
+    $this->img = $img;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of Animaux
+   */
+  public function getAnimaux()
+  {
+    return $this->Animaux;
+  }
+
+  /**
+   * Set the value of Animaux
+   *
+   * @return  self
+   */
+  public function setAnimaux($Animaux)
+  {
+    $this->Animaux = $Animaux;
 
     return $this;
   }

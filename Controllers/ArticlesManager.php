@@ -1,13 +1,24 @@
 <?php class ArticlesManager extends BaseManager
 {
 
+  public function timeUptadet()
+  {
+    date("Y-m-d H:i:s");
+  }
   public function create(Article $article)
   {
 
-    $req = $this->pdo->prepare("INSERT INTO `article`(title,content) VALUES (:title, :content)");
-    $req->bindParam(":title", $article->getTitle(), PDO::PARAM_STR);
-    $req->bindParam(":content", $article->getContent(), PDO::PARAM_STR);
-    $req->bindParam(":content", $article->getContent(), PDO::PARAM_STR);
+    $req = $this->pdo->prepare("INSERT INTO `article`(title,content, post, prioritaire ) VALUES (:title, :content, :post, :prioritaire)");
+    $req->bindValue(":title", $article->getTitle(), PDO::PARAM_STR);
+    $req->bindValue(":content", $article->getContent(), PDO::PARAM_STR);
+    // $req->bindParam(":statut", $article->getStatut(), PDO::PARAM_STR);
+    if ($article->getPrioritaire()) {
+      $req->bindValue(":prioritaire", $article->getPrioritaire(), PDO::PARAM_BOOL);
+    }
+    $req->bindValue(":prioritaire", null, PDO::PARAM_BOOL);
+    $req->bindValue(":post", $article->getPost(), PDO::PARAM_STR);
+
+    // $req->bindParam(":animaux", $article->getAnimaux(), PDO::PARAM_BOOL);
     $req->execute();
   }
 

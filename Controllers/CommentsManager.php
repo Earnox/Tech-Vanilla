@@ -4,7 +4,7 @@
 
 class CommentsManager extends BaseManager
 {
-  
+
   public function create(Comment $comment)
   {
     $req = $this->pdo->prepare("INSERT INTO `commentaire`(content,article_id) VALUES (:content, :article_id)");
@@ -16,7 +16,6 @@ class CommentsManager extends BaseManager
   public function update(Comment $comment)
   {
     $req = $this->pdo->prepare("UPDATE `commentaire` SET content = :content WHERE id = :id");
-
     $req->bindParam(":content", $comment->getContent(), PDO::PARAM_STR);
     $req->bindParam(":id", $comment->getArticle_id(), PDO::PARAM_INT);
 

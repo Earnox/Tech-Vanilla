@@ -1,7 +1,7 @@
 <?php
 class EntityBase
 {
-  protected $id;
+  public $id;
 
 
   public function __construct(array $data)
@@ -10,6 +10,7 @@ class EntityBase
   }
   public function hydrate(array $data): void
   {
+
     foreach ($data as $key => $value) {
       $method = 'set' . ucfirst($key);
       if (method_exists($this, $method)) {
@@ -33,10 +34,10 @@ class EntityBase
    */
   public function setId($id)
   {
-    if (is_int($id)) {
 
-      $this->id = $id;
-    }
+
+    $this->id = $id;
+
 
     return $this;
   }

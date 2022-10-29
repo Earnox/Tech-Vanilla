@@ -1,25 +1,27 @@
 <?php
+include "./inc/config.php";
 class BaseManager
 {
-  protected $pdo;
+  public $pdo;
 
   public function __construct()
   {
+    // define('DB_USERNAME', "tech_chatel");
+    // define('DB_PASSWORD', "PBLbmwVjWuJZ9ORc");
+    // define('DB_HOST', "localhost");
+    // define('DB_DATABASE', "tech_chatel");
+    // define('DB_PORT', "3306");
 
-    $dbName = "tech_vannilla";
-    $this->setPdo(new PDO("mysql:host=localhost:3307;dbname=$dbName", 'root', ''));
-
-
-    $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-    $cleardb_server = $cleardb_url["host"];
-    $cleardb_username = $cleardb_url["user"];
-    $cleardb_password = $cleardb_url["pass"];
-    $cleardb_db = substr($cleardb_url["path"], 1);
-    $active_group = 'default';
-    $query_builder = TRUE;
-    // Connect to DB
-    $this->pdo = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+    try {
+      $pdo = sprintf("mysql:host=%s;dbname=%s;port=%s;", DB_HOST, DB_DATABASE, DB_PORT);
+      $this->setPdo(new PDO($pdo, DB_USERNAME, DB_PASSWORD));
+    } catch (\Exception $e) {
+      echo $e->getMessage();
+    }
   }
+
+
+
 
   /**
    * Get the value of pdo
@@ -27,6 +29,7 @@ class BaseManager
   public function getPdo()
   {
     return $this->pdo;
+    var_dump($this);
   }
 
   /**

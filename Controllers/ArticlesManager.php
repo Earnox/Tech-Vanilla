@@ -30,8 +30,8 @@
   }
   public function getById(int $id)
   {
-    $sql = "SELECT * FROM `article` WHERE id = $id";
-    $req = $this->pdo->query($sql);
+
+    $req = $this->pdo->query("SELECT * FROM `article` WHERE id = $id");
 
     /*$req->bindValue(":id", $id, PDO::PARAM_INT);*/
     $data = $req->fetch();

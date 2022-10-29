@@ -17,7 +17,7 @@ if ($_POST) {
     <label for="form-label">titre</label>
     <input type="text" name="title" id="title" class="form-control" value="">
     <label for="form-label">contenu</label>
-    <textarea type="text" name="content" id="content" class="form-control">  </textarea>
+    <textarea type="text" name="content" id="content" class="form-control"></textarea>
     <input type="submit" value="post" class="btn btn-warning mt-2">
   </form>
 

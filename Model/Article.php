@@ -5,7 +5,8 @@ class Article extends EntityBase
 
   private $title;
   private $content;
-
+  private $statut;
+  private $startDate;
   /**
    * Get the value of title
    */
@@ -48,5 +49,47 @@ class Article extends EntityBase
 
       return $this;
     }
+  }
+
+
+
+  /**
+   * Get the value of startDate
+   */
+  public function getStartDate()
+  {
+    return $this->startDate;
+  }
+
+  /**
+   * Set the value of startDate
+   *
+   * @return  self
+   */
+  public function setStartDate($startDate)
+  {
+    $this->startDate = $startDate;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of statut
+   */
+  public function getStatut()
+  {
+    return $this->statut;
+  }
+
+  /**
+   * Set the value of statut
+   *
+   * @return  self
+   */
+  public function setStatut($statut)
+  {
+    $this->statut = $statut;
+
+    return $this;
   }
 }

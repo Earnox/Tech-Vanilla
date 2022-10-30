@@ -8,28 +8,53 @@
   public function create(Article $article)
   {
 
-    $req = $this->pdo->prepare("INSERT INTO `article`(title,content, post, prioritaire ) VALUES (:title, :content, :post, :prioritaire)");
+    $req = $this->pdo->prepare("INSERT INTO `article`(title,content, post, prioritaire, animaux ) VALUES (:title, :content, :post, :prioritaire, :animaux)");
     $req->bindValue(":title", $article->getTitle(), PDO::PARAM_STR);
     $req->bindValue(":content", $article->getContent(), PDO::PARAM_STR);
     // $req->bindParam(":statut", $article->getStatut(), PDO::PARAM_STR);
     if ($article->getPrioritaire()) {
       $req->bindValue(":prioritaire", $article->getPrioritaire(), PDO::PARAM_BOOL);
+    } else {
+      $req->bindValue(":prioritaire", null, PDO::PARAM_BOOL);
     }
-    $req->bindValue(":prioritaire", null, PDO::PARAM_BOOL);
+
+    if ($article->getAnimaux()) {
+      $req->bindValue(":animaux", $article->getAnimaux(), PDO::PARAM_BOOL);
+    } else {
+      // $req->bindValue(":animaux", null, PDO::PARAM_BOOL);
+      $req->bindValue(":animaux", $article->getAnimaux(), PDO::PARAM_BOOL);
+    }
+    // $req->bindValue(":animaux", $article->getPrioritaire(), PDO::PARAM_BOOL);
+
     $req->bindValue(":post", $article->getPost(), PDO::PARAM_STR);
 
-    // $req->bindParam(":animaux", $article->getAnimaux(), PDO::PARAM_BOOL);
     $req->execute();
   }
 
   public function update(Article $article)
   {
-    $req = $this->pdo->prepare("UPDATE `article` SET title = :title, content = :content , statut = :statut WHERE id = :id");
-    $req->bindParam(":title", $article->getTitle(), PDO::PARAM_STR);
-    $req->bindParam(":content", $article->getContent(), PDO::PARAM_STR);
-    $req->bindParam(":statut", $article->getStatut(), PDO::PARAM_STR);
+    $req = $this->pdo->prepare("UPDATE `article` SET title = :title, content = :content , post = :post ,animaux = :animaux , prioritaire = :prioritaire, statut = :statut WHERE id = :id");
+    $req->bindValue(":title", $article->getTitle(), PDO::PARAM_STR);
+    $req->bindValue(":content", $article->getContent(), PDO::PARAM_STR);
+    // $req->bindParam(":statut", $article->getStatut(), PDO::PARAM_STR);
+    if ($article->getPrioritaire()) {
+      $req->bindValue(":prioritaire", $article->getPrioritaire(), PDO::PARAM_BOOL);
+    } else {
+      $req->bindValue(":prioritaire", null, PDO::PARAM_BOOL);
+    }
 
-    $req->bindParam(":id", $article->getId(), PDO::PARAM_INT);
+    if ($article->getAnimaux()) {
+      $req->bindValue(":animaux", $article->getAnimaux(), PDO::PARAM_BOOL);
+    } else {
+      // $req->bindValue(":animaux", null, PDO::PARAM_BOOL);
+      $req->bindValue(":animaux", $article->getAnimaux(), PDO::PARAM_BOOL);
+    }
+    // $req->bindValue(":animaux", $article->getPrioritaire(), PDO::PARAM_BOOL);
+
+    $req->bindValue(":post", $article->getPost(), PDO::PARAM_STR);
+    $req->bindValue(":statut", $article->getStatut(), PDO::PARAM_STR);
+
+    $req->bindValue(":id", $article->getId(), PDO::PARAM_INT);
 
 
     $req->execute();

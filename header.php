@@ -1,3 +1,12 @@
+<?php function niceVra($data)
+{
+  echo "<pre>";
+  print_r($data);
+  echo "</pre>";
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 

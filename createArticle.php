@@ -24,11 +24,10 @@ if ($_POST) {
       <div class="m-3 form-check form-check-inline">
         <input type="checkbox" class="form-check-input" id="prioritaire" name="prioritaire">
         <label class="form-check-label" for="prioritaire">prioritaire</label>
-
       </div>
       <div class="m-3 form-check form-check-inline">
-        <input type="checkbox" class="form-check-input" id="animaux " name="animaux ">
-        <label class="form-check-label" for="animaux ">animaux </label>
+        <input type="checkbox" class="form-check-input" id="animaux" name="animaux">
+        <label class="form-check-label" for="animaux">animaux </label>
       </div>
     </div>
 
@@ -38,8 +37,8 @@ if ($_POST) {
     <div class="mb-3">
       <label for="post" class="form-label">post</label>
       <select id="post" class="form-select" name="post">
-        <option>Direction</option>
         <option>Réception</option>
+        <option>Direction</option>
         <option>Gouvernance</option>
         <option>Technique</option>
       </select>

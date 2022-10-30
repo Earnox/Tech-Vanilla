@@ -9,7 +9,7 @@ class Article extends EntityBase
   private $startDate;
   private $prioritaire;
   private $post;
-  private $Animaux;
+  private $animaux;
   private $dateRealiser;
   private $img;
   /**
@@ -28,7 +28,7 @@ class Article extends EntityBase
   public function setTitle($title)
   {
     if (is_string($title) && strlen($title) > 1 && strlen($title) < 80) {
-      $this->title = htmlspecialchars($title);
+      $this->title = $title;
     }
 
     return $this;
@@ -50,7 +50,7 @@ class Article extends EntityBase
   public function setContent($content)
   {
     if (is_string($content) && strlen($content) > 1) {
-      $this->content = htmlspecialchars($content);
+      $this->content = $content;
 
       return $this;
     }
@@ -141,9 +141,7 @@ class Article extends EntityBase
     return $this;
   }
 
-  /**
-   * Get the value of Animaux
-   */
+
 
 
   /**
@@ -186,22 +184,27 @@ class Article extends EntityBase
     return $this;
   }
 
+
   /**
-   * Get the value of Animaux
+   * Get the value of animaux
    */
   public function getAnimaux()
   {
-    return $this->Animaux;
+    return $this->animaux;
   }
 
   /**
-   * Set the value of Animaux
+   * Set the value of animaux
    *
    * @return  self
    */
-  public function setAnimaux($Animaux)
+  public function setAnimaux($animaux)
   {
-    $this->Animaux = $Animaux;
+
+    if (isset($animaux)) {
+      $animaux = true;
+    }
+    $this->animaux = $animaux;
 
     return $this;
   }

@@ -8,7 +8,7 @@
   public function create(Article $article)
   {
 
-    $req = $this->pdo->prepare("INSERT INTO `article`(title,content, post, prioritaire, animaux ) VALUES (:title, :content, :post, :prioritaire, :animaux)");
+    $req = $this->pdo->prepare("INSERT INTO `article`(title, content, post, prioritaire, animaux ) VALUES (:title, :content, :post, :prioritaire, :animaux)");
     $req->bindValue(":title", $article->getTitle(), PDO::PARAM_STR);
     $req->bindValue(":content", $article->getContent(), PDO::PARAM_STR);
     // $req->bindParam(":statut", $article->getStatut(), PDO::PARAM_STR);
@@ -22,7 +22,7 @@
       $req->bindValue(":animaux", $article->getAnimaux(), PDO::PARAM_BOOL);
     } else {
       // $req->bindValue(":animaux", null, PDO::PARAM_BOOL);
-      $req->bindValue(":animaux", $article->getAnimaux(), PDO::PARAM_BOOL);
+      $req->bindValue(":animaux", null, PDO::PARAM_BOOL);
     }
     // $req->bindValue(":animaux", $article->getPrioritaire(), PDO::PARAM_BOOL);
 

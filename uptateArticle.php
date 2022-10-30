@@ -58,10 +58,7 @@ if ($_POST) {
         <?php
         // create a array of all post the take out the good loop tu create enum 
         $posts = [
-          "Réception",
-          "Direction",
-          "Gouvernance",
-          "Technique"
+          'Réception', 'Direction', 'Gouvernance', 'Technique'
         ];
         $notSelectedPost = [];
         $selectedPost;
@@ -82,7 +79,7 @@ if ($_POST) {
     </div>
 
     <div class="mb-3">
-      <label for="statut" class="form-label">Statut Inter <?php echo $article->getPost(); ?> ;</label>
+      <label for="statut" class="form-label">Statut Inter </label>
       <select id="statut" class="form-select" name="statut">
 
         <?php
@@ -105,9 +102,10 @@ if ($_POST) {
         ?>
       </select>
     </div>
-
+    <a href="./deleteArticle.php?id=<?= $article->getId() ?>" class=" btn btn-danger"><i class="fas fa-trash-alt"></i></a>
     <input type="submit" value="Modifier" class="btn btn-warning mt-2">
   </form>
 
 
   <?php require 'footer.php';
+  ?>

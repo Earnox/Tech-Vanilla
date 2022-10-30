@@ -54,8 +54,14 @@ if ($_POST) {
       }
 
       ?>
+      <label for="post">Post</label>
+      <p class="card-text" id="post"><?= $article->getPost() ?> </p>
       <label for="content">Intervention</label>
       <p class="card-text" id="content"><?= $article->getContent() ?> </p>
+      <label for="startDate">Heure de pose l'Inter</label>
+      <p class="card-text" id="startDate"><?= $article->getStartDate() ?> </p>
+      <label for="statut">Statut</label>
+      <p class="card-text" id="statut"><?= $article->getStatut() ?> </p>
       <a href="./uptateArticle.php?id=<?= $article->getId() ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
       <a href="./deleteArticle.php?id=<?= $article->getId() ?>" class=" btn btn-danger"><i class="fas fa-trash-alt"></i></a>
 
@@ -76,6 +82,8 @@ if ($_POST) {
     <?php foreach ($comments as $comment) : ?>
       <div class="card" style="width: 18rem;">
         <div class="card-body me-2 mt-2">
+          <p class="card-text"><?= $comment->getContent() ?> </p>
+          <p class="card-text"><?= $comment->getPost() ?> </p>
           <p class="card-text"><?= $comment->getContent() ?> </p>
           <a href="./uptateComment.php?id=<?= $comment->getId() ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
           <a href="./deleteComment.php?id=<?= $comment->getId() ?>" class=" btn btn-danger"><i class="fas fa-trash-alt"></i></a>

@@ -24,27 +24,30 @@ if ($_POST) {
   <h3><?= $article->getTitle() ?></h3>
   <div class="card" style="width: 18rem;">
     <!-- <img src="..." class="card-img-top" alt="..."> -->
-    <div class="card-body">
-      <label for="title">Lieu</label>
+    <div class="card-body form-check-inline">
+      <label for="title ">Lieu</label>
       <p class="card-title" id="title"><?= $article->getTitle() ?></p>
-
-      <?php if ($article->getPrioritaire() == 1) {
+      <!-- checket if prio or no if not prio then dont show -->
+      <?php if ($article->getPrioritaire() === 1) {
         $prioritaire = "checked";
-      } else {
-        $prioritaire = "";
-      }
       ?>
-      <div class="forCheckBox">
-        <div class="m-3 form-check form-check-inline">
-          <input type="checkbox" class="form-check-input" id="prioritaire" name="prioritaire" disabled checked=<?= $prioritaire ?>>
-          <label class="form-check-label" for="prioritaire">prioritaire</label>
+        <div class="forCheckBox">
+          <div class="m-3 form-check form-check-inline">
+            <label class="form-check-label" for="prioritaire">prioritaire</label>
+            <input type="checkbox" class="form-check-input" id="prioritaire" name="prioritaire" disabled checked=<?= $prioritaire ?>>
+          </div>
+        <?php
+      }
 
-        </div>
+        ?>
 
+
+        <p class="card-text"><?= $article->getContent() ?> </p>
         <a href="./uptateArticle.php?id=<?= $article->getId() ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
         <a href="./deleteArticle.php?id=<?= $article->getId() ?>" class=" btn btn-danger"><i class="fas fa-trash-alt"></i></a>
 
-      </div>
+        </div>
+
 
     </div>
     <div class="mt-3">
@@ -54,6 +57,8 @@ if ($_POST) {
         <input type="submit" value="Poster" class="btn btn-danger mt-2">
       </form>
     </div>
+
+
     <div class="d-flex dlex-wrap mt-3">
       <?php foreach ($comments as $comment) : ?>
         <div class="card" style="width: 18rem;">

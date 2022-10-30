@@ -59,7 +59,7 @@ if ($_POST) {
       <label for="content">Intervention</label>
       <p class="card-text" id="content"><?= $article->getContent() ?> </p>
       <label for="startDate">Heure de pose l'Inter</label>
-      <p class="card-text" id="startDate"><?= $article->getStartDate() ?> </p>
+      <p class="card-text" id="startDate"><?= dateCardTable($article->getStartDate()) ?> </p>
       <label for="statut">Statut</label>
       <p class="card-text" id="statut"><?= $article->getStatut() ?> </p>
       <a href="./uptateArticle.php?id=<?= $article->getId() ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>

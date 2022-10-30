@@ -73,6 +73,7 @@ class Article extends EntityBase
    */
   public function setStartDate($startDate)
   {
+
     $this->startDate = $startDate;
 
     return $this;
@@ -159,6 +160,7 @@ class Article extends EntityBase
    */
   public function setDateRealiser($dateRealiser)
   {
+
     $this->dateRealiser = $dateRealiser;
 
     return $this;

@@ -4,6 +4,16 @@
   print_r($data);
   echo "</pre>";
 }
+function dateTable($date)
+{
+  $date = new DateTime($date);
+  echo $date->format("d/m ");
+}
+function dateCardTable($date)
+{
+  $date = new DateTime($date);
+  echo $date->format("H:i:s d/m/y");
+}
 ?>
 
 

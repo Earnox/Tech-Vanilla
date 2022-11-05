@@ -82,9 +82,9 @@ if ($_POST) {
     <?php foreach ($comments as $comment) : ?>
       <div class="card" style="width: 18rem;">
         <div class="card-body me-2 mt-2">
-          <p class="card-text"><?= $comment->getContent() ?> </p>
-          <p class="card-text"><?= $comment->getPost() ?> </p>
-          <p class="card-text"><?= $comment->getContent() ?> </p>
+          <p class="card-text"><?= htmlspecialchars($comment->getContent()) ?> </p>
+          <p class="card-text"><?= htmlspecialchars($comment->getPost()) ?> </p>
+          <p class="card-text"><?= htmlspecialchars($comment->getContent()) ?> </p>
           <a href="./uptateComment.php?id=<?= $comment->getId() ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
           <a href="./deleteComment.php?id=<?= $comment->getId() ?>" class=" btn btn-danger"><i class="fas fa-trash-alt"></i></a>
         </div>

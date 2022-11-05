@@ -2,8 +2,25 @@
 {
   echo "<pre>";
   print_r($data);
-  echo "</pre>";
+  echo "<pre>";
 }
+// {
+//   $type = gettype($data); //tu récupères le type de ta data, et avec le if tu conditionnes la méthode d'affichage au type
+
+//   echo "<pre>";
+//   if ($detailed === true) { //ton deuxième paramètre sera tru si tu veux afficher le type de ta $data
+//     var_dump($data);
+//   } else {
+//     if ($type === "string") { //Sinon on fait juste un echo pour les string et print_r pour le reste
+//       echo $data;
+//     } else {
+//       print_r($data);
+//     }
+//   }
+//   echo "</pre>";
+// }
+
+
 function dateTable($date)
 {
   $date = new DateTime($date);
@@ -14,11 +31,12 @@ function dateCardTable($date)
   $date = new DateTime($date);
   echo $date->format("H:i:s d/m/y");
 }
+// header('Content-Type: text/html; charset=utf-8');
 ?>
 
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr">  
 
 <head>
   <meta charset="UTF-8">
@@ -67,4 +85,11 @@ function dateCardTable($date)
     }
   }
   spl_autoload_register("loadclasses");
+
+  ?>
+  <?php require './Controllers/BaseManager.php';
+  $bsManager = new ArticlesManager();
+
+  niceVra($bsManager->setNameUtf());
+
   ?>

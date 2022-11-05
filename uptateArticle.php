@@ -1,7 +1,8 @@
 <?php require("./header.php");
 $manager = new ArticlesManager();
-$article = $manager->getById($_GET['id']);
 
+$article = $manager->getById($_GET['id']);
+niceVra($article);
 if ($_POST) {
   $article->hydrate($_POST);
   $manager->update($article);
@@ -98,7 +99,7 @@ if ($_POST) {
         foreach ($notSelectedStatut  as $optionPost) {
           echo "<option value='$optionPost'>$optionPost</option>";
         }
-        echo "<option value='Réception' selected >$selectedStatut</option>";
+        echo "<option value='Réception'selected >$selectedStatut</option>";
         ?>
       </select>
     </div>
@@ -107,5 +108,8 @@ if ($_POST) {
   </form>
 
 
-  <?php require 'footer.php';
+  <?php
+
+
+  require 'footer.php';
   ?>

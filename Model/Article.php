@@ -50,7 +50,8 @@ class Article extends EntityBase
   public function setContent($content)
   {
     if (is_string($content) && strlen($content) > 1) {
-      $this->content = $content;
+      $this->content =
+        $content;
 
       return $this;
     }
@@ -84,7 +85,7 @@ class Article extends EntityBase
    */
   public function getStatut()
   {
-    return $this->statut;
+    return $this->statut = htmlspecialchars($this->statut);
   }
 
   /**
@@ -94,7 +95,7 @@ class Article extends EntityBase
    */
   public function setStatut($statut)
   {
-    $this->statut = $statut;
+    $this->statut =  $statut;
 
     return $this;
   }
